@@ -1,0 +1,26 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "classpath:mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.example.model.User">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="getUserById" resultMap="BaseResultMap">
+        SELECT * FROM t_user WHERE id = #{id}
+    </select>
+
+    <insert id="insertUser">
+        INSERT INTO t_user (username, email) VALUES (#{username}, #{email})
+    </insert>
+
+    <update id="updateUser">
+        UPDATE t_user SET username = #{username}, email = #{email} WHERE id = #{id}
+    </update>
+
+    <delete id="deleteUser">
+        DELETE FROM t_user WHERE id = #{id}
+    </delete>
+</mapper>
