@@ -7,15 +7,15 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 
 import com.example.config.CorsConfig;
+import com.example.config.RedisConfig;
 
 @SpringBootApplication
-@Import(CorsConfig.class)
-@ComponentScan(basePackages = {"com.example.demo", "com.example.controller", "com.example.service"})
+@Import({CorsConfig.class,RedisConfig.class})
+@ComponentScan(basePackages = {"com.example.*"})
 @MapperScan("com.example.mapper")
 public class DemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
-
 }

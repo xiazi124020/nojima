@@ -1,0 +1,5 @@
+.\redis-server.exe redis.conf
+
+netstat -ano | findstr :6379
+
+redis-cli.exe -h localhost -p 6379 -a nojima2024
